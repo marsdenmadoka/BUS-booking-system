@@ -53,7 +53,7 @@ Connection con;
     public void Load(){ //created separatefunction for the purpose of reusing code
           try {
             SimpleDateFormat Df=new SimpleDateFormat("YYYY-MM-dd");
-            String date=Df.format(txtdchooser.getDate());
+            String date=Df.format(txtdchooser.getDate());//add JDatechooser library.jar file for this to works
                              //fetching data from the database to put it in the jTable...we have joined table from the databases to fetch different data from each table of the database to diplay it                          //seat.date=?means fetch data on the date is selected
             pst = con.prepareStatement("SELECT seat.busno,seat.seats,seat.status,seat.date,busbook.customer,busbook.mobile from seat Left JOIN busbook ON seat.busno=busbook.busno AND seat.seats=busbook.seats AND seat.date=busbook.date where seat.date=?"); //join the two tables together
             pst.setString(1,date);//fetching data from the table according to the date    ////seat.date=?means fetch data on the date is selected
